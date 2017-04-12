@@ -1,0 +1,101 @@
+<ion-header>
+
+  <ion-navbar color="bg" class="page-title">
+    <ion-title>Monthly Report</ion-title>
+  </ion-navbar>
+
+  <ion-toolbar no-border no-padding class="home">
+    <!-- <ion-list no-lines>
+      <ion-item>
+        <ion-label>Date</ion-label>
+        <ion-select [(ngModel)]="month">
+          <ion-option value="01">January</ion-option>
+          <ion-option value="02" checked="true">February</ion-option>
+          <ion-option value="03">March</ion-option>
+          <ion-option value="04">April</ion-option>
+          <ion-option value="05">May</ion-option>
+          <ion-option value="06">June</ion-option>
+          <ion-option value="07">July</ion-option>
+          <ion-option value="08">August</ion-option>
+          <ion-option value="09">September</ion-option>
+          <ion-option value="10">October</ion-option>
+          <ion-option value="11">November</ion-option>
+          <ion-option value="12">December</ion-option>
+        </ion-select>
+        <ion-select [(ngModel)]="year">
+          <ion-option>2011</ion-option>
+          <ion-option>2012</ion-option>
+          <ion-option>2013</ion-option>
+          <ion-option>2015</ion-option>
+          <ion-option>2016</ion-option>
+          <ion-option checked="true">2017</ion-option>
+        </ion-select>
+      </ion-item>
+    </ion-list> -->
+
+    <ion-list no-lines>
+
+          <ion-item no-lines>
+            <ion-label>Select Month</ion-label>
+            <ion-select [(ngModel)]="month" (ionChange)="changeMonth()">
+              <ion-option  *ngFor="let m of monthList"
+              value="{{m.month}}">
+                {{m.month}}
+              </ion-option>
+              <!-- <ion-option value="01">January</ion-option>
+              <ion-option value="02" checked="true">February</ion-option>
+              <ion-option value="03">March</ion-option>
+              <ion-option value="04">April</ion-option>
+              <ion-option value="05">May</ion-option>
+              <ion-option value="06">June</ion-option>
+              <ion-option value="07">July</ion-option>
+              <ion-option value="08">August</ion-option>
+              <ion-option value="09">September</ion-option>
+              <ion-option value="10">October</ion-option>
+              <ion-option value="11">November</ion-option>
+              <ion-option value="12">December</ion-option> -->
+            </ion-select>
+          </ion-item>
+
+          <ion-item no-lines>
+            <ion-label>Select Year</ion-label>
+            <ion-select [(ngModel)]="year">
+              <ion-option>2011</ion-option>
+              <ion-option>2012</ion-option>
+              <ion-option>2013</ion-option>
+              <ion-option>2015</ion-option>
+              <ion-option>2016</ion-option>
+              <ion-option checked="true">2017</ion-option>
+            </ion-select>
+          </ion-item>
+
+    </ion-list>
+
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content padding>
+  <!-- <div style="display: block; margin-top: 70px;"> -->
+  <!-- <ion-card>
+      <ion-card-content> -->
+        <!-- <canvas #doughnutCanvas></canvas> -->
+        <!-- <canvas baseChart width="100%" height="100%"
+            [data]="polarAreaChartData"
+            [labels]="polarAreaChartLabels"
+            [legend]="polarAreaLegend"
+            [chartType]="polarAreaChartType">
+        </canvas> -->
+        <!-- <canvas baseChart width="100%" height="100%"
+                [data]="lineChartData"
+                [labels]="lineChartLabels"
+                [options]="lineChartOptions"
+                [chartType]="lineChartType"></canvas> -->
+                <canvas baseChart style="display: block;height: 100%;width: 100%;" #lineCanvas></canvas>
+      <!-- (chartHover)="chartHovered($event)"
+      (chartClick)="chartClicked($event)"
+
+    </ion-card-content>
+ </ion-card> -->
+  <!-- </div> -->
+</ion-content>

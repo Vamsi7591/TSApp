@@ -1,0 +1,49 @@
+<ion-header>
+
+  <ion-navbar color="bg" class="page-title">
+    <button menuToggle ion-button icon-only>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+    <ion-title>Project Master</ion-title>
+    <!-- <ion-buttons end>
+      <button ion-button icon-only>
+                <ion-icon name="add"></ion-icon>
+            </button>
+    </ion-buttons> -->
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content no-padding class="home">
+  <ion-list no-lines >
+    <ion-item class="home" text-wrap no-lines *ngFor="let item of projectDetails">
+      <ion-card class="card-margin">
+        <ion-card-content>
+          <ion-row center>
+            <ion-col left width-70 text-left>
+              <h2 color="primary">{{item.projectName}}</h2>
+            </ion-col>
+            <ion-col center width-30 text-right>
+              <div>{{item.projectCode}}</div>
+            </ion-col>
+
+            <!-- <ion-col center width-20 text-right>
+              <div ng-hide=[!item.commonFlag]><ion-icon name="checkmark-circle"></ion-icon></div>
+              <div ng-hide=[item.commonFlag]><ion-icon name="close-circle"></ion-icon></div>
+
+            <button ion-button icon-only color="primary" >
+            <ion-icon name="close-circle"></ion-icon></button>
+            </ion-col> -->
+
+            <!-- <ion-col *ngIf=[item.commonFlag] center width-20 text-right>
+            <button ion-button icon-only color="primary" >
+            <ion-icon name="checkmark-circle"></ion-icon></button>
+            </ion-col> -->
+
+          </ion-row>
+        </ion-card-content>
+      </ion-card>
+    </ion-item>
+  </ion-list>
+</ion-content>

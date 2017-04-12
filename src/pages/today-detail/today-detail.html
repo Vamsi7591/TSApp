@@ -1,0 +1,62 @@
+<ion-header>
+
+  <ion-navbar color="bg" class="page-title">
+    <ion-title>{{_date}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+
+  <ion-list no-lines>
+  <ion-card>
+    <ion-item no-lines class="home" text-wrap *ngFor="let item of todayDetails">
+          <ion-row center>
+              <h2 color="blue" style="text-align: center;width: 100%;">{{item.projectName}}</h2>
+          </ion-row>
+          <p>{{item.taskDescription}}</p>
+          <ion-row center>
+            <ion-col left width-33 text-left>
+                <img class="icon-bg" src="assets/icon/timer_start.png" />{{item.startTime}}
+              <div>
+              <!-- <ion-icon class="ion-icon ion-ios-customicon_start"></ion-icon> -->
+            </div>
+            </ion-col>
+            <ion-col center width-33 text-center>
+              <div>
+                <img class="icon-bg" src="assets/icon/timer_end.png" />{{item.endTime}}
+                <!-- <ion-icon class="ion-icon ion-ios-customicon_end"></ion-icon> -->
+              </div>
+            </ion-col>
+            <ion-col center width-33 text-right>
+              <div>
+                <img  class="icon-bg" src="assets/icon/timer_total.png" />{{item.totalHours}}
+                <!-- <ion-icon class="ion-icon ion-ios-customicon_total"></ion-icon> -->
+              </div>
+            </ion-col>
+          </ion-row>
+          <ion-col center width-100 text-center>
+            <!-- <img class="ion-ios-customicon_arrow"/> -->
+            <img  class="icon-bg-arrow" src="assets/icon/arrow_down.png" />
+          </ion-col>
+    </ion-item>
+
+    <ion-item>
+    <ion-row>
+      <ion-col center width-33 text-center style="margin-left: 26%;">
+        Total hours: {{mins}}
+          <img  class="icon-bg" src="assets/icon/timer_total.png" />
+          <!-- <ion-icon class="ion-icon ion-ios-customicon_total"></ion-icon> -->
+      </ion-col>
+    </ion-row>
+    </ion-item>
+
+  </ion-card>
+
+
+
+</ion-list>
+
+
+</ion-content>

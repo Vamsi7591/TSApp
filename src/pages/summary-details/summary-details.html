@@ -1,0 +1,43 @@
+<ion-header>
+
+  <ion-navbar color="bg" class="page-title">
+    <button menuToggle ion-button icon-only>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+    <ion-title>SummaryDetails</ion-title>
+  </ion-navbar>
+
+  <ion-toolbar no-border no-padding class="home">
+
+    <ion-list no-lines>
+
+          <ion-item no-lines>
+            <ion-label>Employee Name</ion-label>
+            <ion-select type="text" [(ngModel)]="empName">
+              <ion-option *ngFor="let e of employeeDetails" value="{{e.employeeName}}">{{e.employeeName}}</ion-option>
+            </ion-select>
+          </ion-item>
+
+          <ion-item no-lines>
+            <ion-label>Project Name</ion-label>
+            <ion-select type="text" [(ngModel)]="projName">
+              <ion-option *ngFor="let p of projectDetails" value="{{p.projectName}}">{{p.projectName}}</ion-option>
+            </ion-select>
+          </ion-item>
+
+          <div>
+            <ion-row>
+              <ion-col>
+                  <button ion-button round class="ion-row" (click)="go()" >Go</button>
+              </ion-col>
+            </ion-row>
+          </div>
+
+    </ion-list>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content padding>
+  <canvas baseChart width="100%" height="100%" #barCanvas></canvas>
+</ion-content>

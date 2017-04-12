@@ -1,0 +1,29 @@
+page-loading {
+  .home{
+    color: #000;
+    background-image: url('../../assets/icon/logo.png');
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  ion-row {
+    align-items: center;
+    text-align: center;
+  }
+
+  ion-spinner{
+    width: 100px;
+    height: 100px;
+    position: inherit;
+    margin-left: 35%;
+  }
+
+  .spinner-crescent circle{
+    fill:#673147;
+  }
+
+  h1{
+    margin: 5rem;
+    text-align: center;
+  }
+}

@@ -1,0 +1,37 @@
+<ion-header>
+
+  <ion-navbar color="bg" class="page-title">
+    <button menuToggle ion-button icon-only>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+    <ion-title>Employee Master</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="addInput()">
+                <ion-icon class="icon-pad" name="add"></ion-icon>
+            </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content no-padding class="home">
+  <ion-list no-lines >
+    <ion-item class="home" text-wrap no-lines *ngFor="let item of employeeDetails" (click)="openView($event, item)">
+      <ion-card class="card-margin">
+        <ion-card-content>
+          <ion-row center>
+            <ion-col left width-60 text-left>
+              <h2 color="primary">{{item.employeeName}}</h2>
+            </ion-col>
+            <ion-col center width-40 text-right>
+              <div>
+                <ion-icon class="ion-icon" name="ios-at"></ion-icon>{{item.employeeCode}}</div>
+            </ion-col>
+          </ion-row>
+          <p>{{item.employeeEmailId}}</p>
+        </ion-card-content>
+      </ion-card>
+    </ion-item>
+  </ion-list>
+</ion-content>

@@ -1,0 +1,31 @@
+page-home {
+  // .home {
+  //     background: #673147;
+  //   }
+  // .tab-button {
+  //     height: 60px;
+  //     margin: 4px;
+  // }
+.tabs-md-white .tab-button[aria-selected=true] .tab-button-icon{
+    padding: 0;
+    color: #387ef5;
+}
+.tabs-md-bg .tab-button, .tabs-md-bg .tab-button-icon {
+    color: null;
+}
+.tabs-md .tab-button {
+    padding: 0;
+    min-height: 6.6rem;
+    font-weight: normal;
+    color: #000;
+}
+
+.tabs-md-white .tab-button[aria-selected=true], .tabs-md-white .tab-button[aria-selected=true] .tab-button-icon {
+    color: #387ef5;
+}
+
+.tabs-md .tab-button[aria-selected=true] .tab-button-icon {
+    color: #387ef5;
+}
+
+}

@@ -1,0 +1,59 @@
+{
+  "today": [
+    {
+      "projectName": "Angular2",
+      "date": "02/14/2017",
+      "startTime": "10:00AM",
+      "endTime": "7:00PM",
+      "totalHours": "9.00",
+      "taskDescription": "Movies POC."
+    },
+    {
+      "projectName": "Freshers Training",
+      "date": "02/14/2017",
+      "startTime": "7:00PM",
+      "endTime": "7:30PM",
+      "totalHours": "0.30",
+      "taskDescription": "Explained Time sheet Mobile app screen designs to Gopi and Vijay."
+    },{
+      "projectName": "Angular2",
+      "date": "02/13/2017",
+      "startTime": "10:00AM",
+      "endTime": "6:30PM",
+      "totalHours": "8.30",
+      "taskDescription": "Working with HTTP and Lifecycle Events"
+    },
+    {
+      "projectName": "Freshers Training",
+      "date": "02/13/2017",
+      "startTime": "6:30PM",
+      "endTime": "7:00PM",
+      "totalHours": "0.30",
+      "taskDescription": "SQLite Database doubts.."
+    },
+    {
+      "projectName": "Angular2",
+      "date": "02/10/2017",
+      "startTime": "10:00AM",
+      "endTime": "7:00PM",
+      "totalHours": "9.00",
+      "taskDescription": "Movies List Ionic sample and Ionic 2 Components."
+    },
+    {
+      "projectName": "Freshers Training",
+      "date": "02/09/2017",
+      "startTime": "10:30AM",
+      "endTime": "11:30AM",
+      "totalHours": "1.00",
+      "taskDescription": "Local Database(SQLite) concept explanation, Task: CURD operations on SQLite to Vijay and Gopi."
+    },
+    {
+      "projectName": "Angular2",
+      "date": "02/09/2017",
+      "startTime": "12:00PM",
+      "endTime": "8:00PM",
+      "totalHours": "8.00",
+      "taskDescription": "Ionic 2 Components: 1. Ionic Lists 2. List Dividers 3. Buttons 4. Ionicons Working with HTTP and Lifecycle Events: 1. Setting up Your Backend 2. Create Service to Interact with HTTP 3. Working with Promises 4. Lifecycle Events Overview"
+    }
+    ]
+}

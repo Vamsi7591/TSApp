@@ -1,0 +1,127 @@
+page-today-input {
+
+  .page-title {
+    color: #ffffff;
+    // font-size: 1.5em;
+    text-align: center;
+    align-items: center;
+    // padding-right: 50px;
+    text-size-adjust: initial;
+  }
+
+  .home .label-md{
+    background: #ffffff;
+    color: #000;//#673147;
+  }
+
+  .back-button-ios {
+    margin-left: 10px;
+  }
+
+  .error{
+      color: #e13838;
+  }
+
+  .select-ios .select-icon .select-icon-inner{
+    border: 0;
+  }
+
+  .select-md .select-icon .select-icon-inner{
+    border: 0;
+  }
+
+  .label{
+    color: #000;//#673147;
+    margin:0;
+  }
+
+  ion-row {
+    align-items: center;
+    text-align: center;
+  }
+
+  .card-margin {
+    margin: 0;
+    background: #FFF;
+    border: 1px solid #AAA;
+    border-bottom: 2px solid #BBB;
+    padding: 0;
+    overflow: hidden;
+  }
+
+  .button-text {
+    text-transform: initial;
+    font-size: medium;
+    padding: 0;
+  }
+
+  item-md, item-button{
+    padding: 0;
+    height: 25px;
+    font-size: 1.6rem;
+  }
+
+  .item-inner {
+    padding-right: 0px !important;
+  }
+
+  .item-input {
+    color: #000;
+  }
+
+  .ion-select {
+    max-width: 60%;
+  }
+
+  ion-input, ion-textarea {
+            background-color: #f2f2f2;
+            // padding: 5px 10px;
+            padding: 2%;
+            border: 1px solid #000;//#673147;
+            margin-right: 10px;
+            margin-bottom: 200%;
+  }
+
+  .icon-pad{
+    margin-right: 3px;
+    margin-bottom: 3px;
+  }
+
+  .ion-icon {
+    padding:0px;
+    margin: 0px;
+    display: inline-block;
+    font-size: 1.2em;
+    margin-right: 5px;
+  }
+
+  .list-md{
+      margin-top: 0px;
+      margin-right: 10px;
+      margin-bottom: 10px;
+      margin-left: 0px;
+  }
+
+  .list-ios{
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 10px;
+    margin-left: 0px;
+  }
+
+}
+
+// .ios, .md{
+//   .list-md {
+//       margin-top: 0px;
+//       margin-right: 0px;
+//       margin-bottom: 10px;
+//       margin-left: 0px;
+//   }
+// .list-ios {
+//     margin-top: 0px;
+//     margin-right: 0px;
+//     margin-bottom: 10px;
+//     margin-left: 0px;
+// }
+// }

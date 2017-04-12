@@ -1,0 +1,43 @@
+<ion-menu [content]="content" swipeEnabled="false">
+  <ion-header>
+    <ion-toolbar color="bg" class="page-title">
+      <ion-title>Time Sheet</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content>
+    <!-- <ion-list>
+       <ion-list-header>Menu</ion-list-header>
+      <button menuClose ion-item (click)="goToEmployeeMaster()">Employee Master</button>
+      <button menuClose ion-item (click)="goToProjectMaster()">Project Master</button>
+      <button menuClose ion-item (click)="goToEmployeeProject()">Employee Project</button>
+      <button menuClose ion-item (click)="goToSummaryDetails()">Summary Details</button>
+    </ion-list> -->
+    <ion-item color="bg">
+    <p style="color: #fff; text-align: center;padding: 0;">LOGGED IN AS <strong>ADMINISTRATOR</strong></p>
+    </ion-item>
+
+    <ion-list>
+      <!-- remember the `this.pages` object we created in `app.js`?
+      // Iterate through, then when clicked, run the associated function
+      // passing in the #p item. -->
+      <!-- // changed #p to let p instead -->
+      <button menuClose ion-item *ngFor="let p of pages"  (click)="openPage($event,p)">
+        <button ion-button color="white" item-right [class.activeHighlight]="checkActive(p)" style="border-radius: 0px;"> </button>
+        {{p.title}}
+      </button>
+    </ion-list>
+     <!-- <ion-list>
+      <ion-list-header>Favorites</ion-list-header>
+      <button menuClose ion-item *ngFor="let fav of favoriteTeams" (click)="goToTeam(fav)">
+        {{fav.team.name}}
+      </button>
+    </ion-list> -->
+  </ion-content>
+
+</ion-menu>
+
+
+<!-- <ion-nav id="nav" [root]="rootPage"></ion-nav> -->
+<!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>

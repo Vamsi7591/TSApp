@@ -1,0 +1,40 @@
+page-profile-view {
+
+  .icon-bg{
+    background: #ffffff;
+  }
+
+  .item-md ion-avatar ion-img, .item-md ion-avatar img,
+  .item-ios ion-avatar ion-img, .item-ios ion-avatar img,
+  .item-wp ion-avatar ion-img, .item-wp ion-avatar img{
+    width: 108px;
+    height: 108px;
+    border-radius: 50%;
+    overflow: hidden;
+  }
+
+  .page-title {
+    color: #ffffff;
+    text-align: center;
+    align-items: center;
+    // padding-right: 50px;
+    text-size-adjust: initial;
+  }
+
+  .icon-pad{
+    // padding-bottom: 5px;
+    // padding-right: 5px;
+    margin-right: 3px;
+    margin-bottom: 3px;
+  }
+
+  .scroll-content {
+    padding-bottom:0!important;
+  }
+
+  ion-row {
+    align-items: center;
+    text-align: center;
+  }
+
+}

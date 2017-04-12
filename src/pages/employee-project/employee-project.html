@@ -1,0 +1,67 @@
+<ion-header>
+
+  <ion-navbar color="bg" class="page-title" margin-right="10px">
+    <button menuToggle ion-button icon-only>
+            <ion-icon class="icon-pad" name="menu"></ion-icon>
+        </button>
+    <ion-title>Employee Project</ion-title>
+  </ion-navbar>
+
+  <!-- <ion-toolbar no-border no-padding class="home">
+
+    <ion-list no-lines>
+          <ion-item no-lines>
+            <ion-label>Project Name</ion-label>
+            <ion-select type="text" [(ngModel)]="projName">
+              <ion-option *ngFor="let p of projectDetails" value="{{p.projectName}}">{{p.projectName}}</ion-option>
+            </ion-select>
+          </ion-item>
+
+          <ion-item no-lines>
+            <ion-label>Employee Name</ion-label>
+            <ion-select type="text" multiple="true" [(ngModel)]="empName">
+              <ion-option *ngFor="let e of employeeDetails" value="{{e.employeeName}}">{{e.employeeName}}</ion-option>
+            </ion-select>
+          </ion-item>
+
+    </ion-list>
+  </ion-toolbar> -->
+
+</ion-header>
+
+<ion-content no-padding class="home">
+
+  <!-- <ion-list>
+    <ion-item no-lines *ngFor="let e of employeeDetails; let i=index">
+      <ion-label>{{e.employeeName}}</ion-label>
+      <ion-checkbox type="checkbox"  [checked]="isChecked" color="dark" (ionChange)="clickSelectBox($event, e.employeeName)" [ngModel]="empNameList.checked"></ion-checkbox>
+      checked="false" ; let i=index    (ngModelChange)="$event ? checkedIdx = i : checkedIdx = -1" [disabled]="checkedIdx >= 0 && checkedIdx != i"
+    </ion-item>
+  </ion-list> -->
+<!-- [disabled]="!empNameList.checked" -->
+
+<ion-list no-lines>
+      <ion-item no-lines>
+        <ion-label>Project Name</ion-label>
+        <ion-select type="text" [(ngModel)]="projName">
+          <ion-option *ngFor="let p of projectDetails" value="{{p.projectName}}">{{p.projectName}}</ion-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item no-lines>
+        <ion-label>Employee Name</ion-label>
+        <ion-select type="text" multiple="true" [(ngModel)]="empName">
+          <ion-option *ngFor="let e of employeeDetails" value="{{e.employeeName}}">{{e.employeeName}}</ion-option>
+        </ion-select>
+      </ion-item>
+
+</ion-list>
+
+<div>
+  <ion-row>
+    <ion-col>
+        <button ion-button round class="ion-row" (click)="assignProject()" >Submit</button>
+    </ion-col>
+  </ion-row>
+</div>
+</ion-content>

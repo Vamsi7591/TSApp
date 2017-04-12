@@ -1,0 +1,104 @@
+{
+  "name": "ionic-hello-world",
+  "author": "Ionic Framework",
+  "homepage": "http://ionicframework.com/",
+  "private": true,
+  "scripts": {
+    "clean": "ionic-app-scripts clean",
+    "build": "ionic-app-scripts build",
+    "ionic:build": "ionic-app-scripts build",
+    "ionic:serve": "ionic-app-scripts serve"
+  },
+  "dependencies": {
+    "@angular/common": "2.2.1",
+    "@angular/compiler": "2.2.1",
+    "@angular/compiler-cli": "2.2.1",
+    "@angular/core": "2.2.1",
+    "@angular/forms": "2.2.1",
+    "@angular/http": "2.2.1",
+    "@angular/platform-browser": "2.2.1",
+    "@angular/platform-browser-dynamic": "2.2.1",
+    "@angular/platform-server": "2.2.1",
+    "@ionic-native/browser-tab": "^3.4.4",
+    "@ionic-native/call-number": "^3.4.4",
+    "@ionic-native/camera": "^3.4.2",
+    "@ionic-native/core": "^3.4.4",
+    "@ionic-native/crop": "^3.4.2",
+    "@ionic-native/device": "^3.4.2",
+    "@ionic-native/diagnostic": "^3.4.2",
+    "@ionic-native/geolocation": "^3.4.4",
+    "@ionic-native/google-maps": "^3.4.4",
+    "@ionic-native/image-picker": "^3.4.2",
+    "@ionic-native/keyboard": "^3.4.2",
+    "@ionic-native/local-notifications": "^3.4.4",
+    "@ionic-native/location-accuracy": "^3.4.4",
+    "@ionic-native/native-geocoder": "^3.4.2",
+    "@ionic-native/network": "^3.4.4",
+    "@ionic-native/screenshot": "^3.4.2",
+    "@ionic-native/spinner-dialog": "^3.4.4",
+    "@ionic-native/toast": "^3.4.4",
+    "@ionic/storage": "1.1.7",
+    "ionic-angular": "2.1.0",
+    "ionic-native": "^2.8.1",
+    "ionicons": "3.0.0",
+    "lodash": "^4.17.4",
+    "rxjs": "5.0.0-beta.12",
+    "sw-toolbox": "3.4.0",
+    "zone.js": "^0.7.6"
+  },
+  "devDependencies": {
+    "@ionic/app-scripts": "^1.1.3",
+    "typescript": "2.0.9"
+  },
+  "cordovaPlugins": [
+    "cordova-plugin-whitelist",
+    "cordova-plugin-console",
+    "cordova-plugin-statusbar",
+    "cordova-plugin-splashscreen",
+    "cordova-sqlite-storage",
+    "cordova-plugin-crop",
+    "cordova-plugin-geolocation",
+    "cordova-plugin-compat",
+    "cordova-plugin-nativegeocoder",
+    "cordova-plugin-email",
+    "cordova-plugin-network-information",
+    {
+      "locator": "https://github.com/gitawego/cordova-screenshot.git",
+      "id": "com.darktalker.cordova.screenshot"
+    },
+    "phonegap-plugin-barcodescanner",
+    "cordova-plugin-device",
+    "ionic-plugin-keyboard",
+    "cordova-plugin-add-swift-support",
+    "cordova-plugin-camera",
+    {
+      "locator": "https://github.com/phonegap-googlemaps-plugin/cordova-plugin-googlemaps",
+      "id": "cordova-plugin-googlemaps"
+    },
+    {
+      "locator": "https://github.com/mapsplugin/cordova-plugin-googlemaps-sdk",
+      "id": "com.googlemaps.ios"
+    },
+    {
+      "locator": "https://github.com/Telerik-Verified-Plugins/ImagePicker",
+      "id": "com.synconset.imagepicker"
+    },
+    "de.appplant.cordova.plugin.local-notification",
+    "cordova-plugin-app-event",
+    "cordova-plugin-file",
+    "cordova.plugins.diagnostic"
+  ],
+  "cordovaPlatforms": [
+    {
+      "platform": "android",
+      "version": "",
+      "locator": "android"
+    },
+    {
+      "platform": "ios",
+      "version": "",
+      "locator": "ios"
+    }
+  ],
+  "description": "TimeSheet: An Ionic project"
+}

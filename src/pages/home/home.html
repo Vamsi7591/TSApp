@@ -1,0 +1,71 @@
+﻿<!-- <ion-header>
+  <ion-navbar>
+    <ion-title>
+
+    </ion-title>
+  </ion-navbar>
+</ion-header> -->
+
+<!-- <ion-content text-center class="home">
+
+  <ion-card text-center>
+
+    <ion-card-header color="primary" large>
+        Time Sheet Login
+    </ion-card-header>
+
+      <ion-list >
+        <ion-item no-lines>
+          <ion-label color="dark" floating>Employee Code</ion-label>
+          <ion-input></ion-input>
+        </ion-item>
+
+        <ion-item no-lines>
+          <ion-label color="dark" floating>Password</ion-label>
+          <ion-input type="password"></ion-input>
+        </ion-item>
+      </ion-list>
+
+      <button ion-button round>Submit</button>
+  </ion-card>
+</ion-content> -->
+
+
+<!-- <ion-header>
+  <ion-navbar color="dark">
+    <ion-title>
+      Time Sheet
+    </ion-title>
+    <ion-buttons end>
+      <button ion-button (click)="logout()">
+        <ion-icon name="log-out"></ion-icon>
+
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header> -->
+
+<!-- <ion-content class="home" padding>
+  <h3>Welcome inside, {{employeeCode}}!</h3>
+  Your Email is: {{password}}
+</ion-content> -->
+<!--*ngIf="valueforngif"-->
+<ion-tabs class="tabs-positive tabs-icon-only">
+
+  <ion-tab tabTitle="Time Sheet" [root]="dayTab" [rootParams]="sheet" tabIcon="list-box">
+    <!-- Tab 1 content -->
+  </ion-tab>
+
+  <ion-tab tabTitle="Weekly" [root]="weekTab" [rootParams]="sheet" tabIcon="pie">
+    <!-- Tab 2 content -->
+  </ion-tab>
+
+  <ion-tab tabTitle="Monthly" [root]="monthTab" [rootParams]="sheet" tabIcon="pulse">
+    <!-- Tab 3 content -->
+  </ion-tab>
+
+  <ion-tab tabTitle="Settings" [root]="passwordTab" [rootParams]="sheet" tabIcon="settings">
+    <!-- Tab 4 content -->
+  </ion-tab>
+
+</ion-tabs>

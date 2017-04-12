@@ -1,0 +1,218 @@
+﻿<ion-header>
+
+  <ion-navbar color="bg" class="page-title">
+    <ion-title>Profile Info</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content style="padding:0px;">
+
+<ion-card padding>
+
+      <ion-item>
+      <ion-avatar style="margin-left: 30%;">
+        <img [src]="base64Image" *ngIf="base64Image" (click)="presentActionSheet()"/>
+      </ion-avatar>
+      </ion-item>
+
+<!-- <form #registerForm="ngForm">
+  <ion-list inset>
+    <ion-item>
+      <ion-label stacked>Employee Name</ion-label>
+      <ion-input type="text" [(ngModel)]="empInfo.employeeName" name="employeeName" #employeeNameInput (keydown)="moveNext($event,'employeeName')" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked>Employee Code</ion-label>
+      <ion-input type="text" [(ngModel)]="empInfo.employeeCode" name="employeeCode" #employeeCodeInput (keydown)="moveNext($event,'employeeCode')" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked>Email Id</ion-label>
+      <ion-input type="text" [(ngModel)]="empInfo.emailId" #emailIdInput name="emailId"  (keydown)="moveNext($event,'emailId')" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked>Designation</ion-label>
+      <ion-input type="text" [(ngModel)]="empInfo.designation" #designationInput name="designation"  (keydown)="moveNext($event,'designation')" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked>Mobile Number</ion-label>
+      <ion-input type="tel" [(ngModel)]="empInfo.mobile" #mobileInput name="mobile" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked>Blood Group</ion-label>
+      <ion-input type="text" [(ngModel)]="empInfo.bloodGroup" #bloodGroupInput name="bloodGroup"  (keydown)="moveNext($event,'bloodGroup')" required></ion-input>
+    </ion-item>
+  </ion-list>
+</form> -->
+
+
+
+
+    <ion-list inset>
+      <p *ngIf="!submitAttempt" style="color: #ea6153; text-align: center;">Please fill out all details accurately.</p>
+
+      <form [formGroup]="slideOneForm" #empForm="ngForm" (ngSubmit)="formClick()">
+      <ion-row>
+        <ion-col>
+          <ion-list inset>
+              <ion-item>
+                <ion-label floating>Employee Name</ion-label>
+                <ion-input #employeeNameInput (keydown)="moveNext($event,'employeeName')" type="text" [(ngModel)]="empInfo.employeeName" [class.invalid]="!slideOneForm.controls.employeeName.valid && (slideOneForm.controls.employeeName.dirty || submitAttempt)" formControlName="employeeName" required></ion-input>
+              </ion-item>
+              <ion-item *ngIf="!slideOneForm.controls.employeeName.valid && (slideOneForm.controls.employeeName.dirty || submitAttempt)">
+                <p style=" color: #ea6153;">Please enter a valid name.</p>
+              </ion-item>
+              <!-- <p [hidden]="slideOneForm.controls.employeeName.valid" danger padding-left>Employee name is empty</p> -->
+
+              <ion-item>
+                <ion-label floating>Employee Code</ion-label>
+                <ion-input #employeeCodeInput (keydown)="moveNext($event,'employeeCode')" type="text" [(ngModel)]="empInfo.employeeCode" formControlName="employeeCode" required></ion-input>
+              </ion-item>
+              <ion-item *ngIf="!slideOneForm.controls.employeeCode.valid && (slideOneForm.controls.employeeCode.dirty || submitAttempt)">
+                <p style=" color: #ea6153;">Please enter a valid code.</p>
+              </ion-item>
+
+              <ion-item>
+                <ion-label floating>Email Id</ion-label>
+                <ion-input type="text" [(ngModel)]="empInfo.emailId" formControlName="emailId" #emailIdInput  (keydown)="moveNext($event,'emailId')" required></ion-input>
+              </ion-item>
+              <ion-item *ngIf="!slideOneForm.controls.emailId.valid && (slideOneForm.controls.emailId.dirty || submitAttempt)">
+                <p style=" color: #ea6153;">Please enter a valid email.</p>
+              </ion-item>
+
+              <ion-item>
+                <ion-label floating>Designation</ion-label>
+                <ion-input type="text" [(ngModel)]="empInfo.designation" formControlName="designation" #designationInput (keydown)="moveNext($event,'designation')" required></ion-input>
+              </ion-item>
+              <ion-item *ngIf="!slideOneForm.controls.designation.valid && (slideOneForm.controls.designation.dirty || submitAttempt)">
+                <p style=" color: #ea6153;">Please enter a valid designation.</p>
+              </ion-item>
+
+              <ion-item>
+                <ion-label floating>Mobile Number</ion-label>
+                <ion-input type="number" [(ngModel)]="empInfo.mobile" formControlName="mobile" #mobileInput required></ion-input>
+              </ion-item>
+              <ion-item *ngIf="!slideOneForm.controls.mobile.valid && (slideOneForm.controls.mobile.dirty || submitAttempt)">
+                <p style=" color: #ea6153;">Please enter a valid number.</p>
+              </ion-item>
+
+              <ion-item>
+                <ion-label floating>Blood Group</ion-label>
+                <ion-input type="text" [(ngModel)]="empInfo.bloodGroup" formControlName="bloodGroup" #bloodGroupInput (keydown)="moveNext($event,'bloodGroup')" required></ion-input>
+              </ion-item>
+              <ion-item *ngIf="!slideOneForm.controls.bloodGroup.valid && (slideOneForm.controls.bloodGroup.dirty || submitAttempt)">
+                <p style=" color: #ea6153;">Please enter a valid blood group.</p>
+              </ion-item>
+            </ion-list>
+          </ion-col>
+        </ion-row>
+      </form>
+</ion-list>
+
+    <div>
+      <ion-row>
+        <ion-col *ngIf="empForm.valid">
+            <button  color="secondary" ion-button round class="ion-row" (click)="formClick(empInfo)">Save</button>
+        </ion-col>
+      </ion-row>
+    </div>
+
+    <ion-item style="padding: 0;">
+      <ion-label>Projects handling:</ion-label>
+    </ion-item>
+    <ion-chip color="secondary">
+      <ion-label> TimeSheet </ion-label>
+    </ion-chip>
+    <ion-chip color="primary">
+      <ion-label> DineConnect </ion-label>
+    </ion-chip>
+    <ion-chip color="dark">
+      <ion-label> Firebase </ion-label>
+    </ion-chip>
+    <ion-chip color="secondary">
+      <ion-label> VRI </ion-label>
+    </ion-chip>
+    <ion-chip color="primary">
+      <ion-label> Salesforce </ion-label>
+    </ion-chip>
+    <ion-chip color="dark">
+      <ion-label>IONIC 2</ion-label>
+    </ion-chip>
+
+    <ion-item style="padding: 0; margin-top: 10px; margin-left: 3px;">
+      <ion-label>Change Password</ion-label>
+      <ion-toggle color="secondary" (ionChange)="navToChangePassword()" [(ngModel)]="changePassword"></ion-toggle>
+    </ion-item>
+
+  <ion-navbar color="white">
+    <h2 style="color: black; margin:0px;padding: 0;">Location</h2>
+    <ion-buttons end>
+      <button ion-button icon-only clear (click)="navToMaps()">
+        <ion-icon class="icon-pad" name="map"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+  <ion-navbar color="white" hideWhen="ios">
+    <h2 style="color: black; margin:0px;padding: 0;">Screenshot</h2>
+    <ion-buttons end>
+      <button ion-button icon-only clear (click)="takeScreenShot()">
+        <ion-icon class="icon-pad" name="ios-image"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+  <ion-navbar color="white">
+    <h2 style="color: black; margin:0px;padding: 0;">Scan Barcode</h2>
+    <ion-buttons end>
+      <button ion-button icon-only clear (click)="openBarcodeScanner()">
+        <ion-icon class="icon-pad" name="barcode"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+  <ion-navbar color="white" *ngIf="!hideDevice">
+    <h2 style="color: black; margin:0px;padding: 0;" [hidden]="hideDevice">Device UUID is: {{deviceId}}</h2>
+    <ion-buttons end>
+      <button ion-button icon-only clear [hidden]="hideDevice" (click)="getDeviceId()">
+        <ion-icon class="icon-pad" [name]="platformIcon"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+  <ion-navbar color="white">
+    <h2 style="color: black; margin:0px;padding: 0;">Phone Call</h2>
+    <ion-buttons end>
+      <button ion-button icon-only clear (click)="makeCall()">
+        <ion-icon class="icon-pad" name="call"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+  <ion-navbar color="white">
+    <h2 style="color: black; margin:0px;padding: 0;">About Us</h2>
+    <ion-buttons end>
+      <button ion-button icon-only clear (click)="aboutUs()">
+        <ion-icon class="icon-pad" name="browsers"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+    <ion-navbar color="white">
+      <h2 style="color: red; margin:0px;padding: 0;">Would you like to Log Out</h2>
+      <ion-buttons end>
+        <button ion-button icon-only clear (click)="logOut()">
+          <ion-icon class="icon-pad" name="log-out"></ion-icon>
+        </button>
+      </ion-buttons>
+    </ion-navbar>
+</ion-card>
+
+  <!-- <ion-list>
+    <ion-item *ngFor="let item of assetCollection ; trackBy:trackByFunction">
+      <item-component [item]="item"></item-component>
+    </ion-item>
+  </ion-list> -->
+
+</ion-content>

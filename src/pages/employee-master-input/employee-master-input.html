@@ -1,0 +1,67 @@
+<ion-header>
+
+  <ion-navbar color="bg" class="page-title">
+    <ion-title>Employee Master</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="empInsert()" [hidden]="!empInputForm.form.valid">
+        <ion-icon class="icon-pad" name="done-all"></ion-icon>
+      </button>
+      <button ion-button icon-only (click)="empInsert()" [hidden]="canEdit">
+        <ion-icon class="icon-pad" name="create"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content style="padding:0px;">
+
+<ion-card padding>
+
+  <ion-item>
+  <ion-avatar style="margin-left: 28%;">
+    <img [src]="empInfo.base64Image" *ngIf="empInfo.base64Image"/>
+  </ion-avatar>
+  </ion-item>
+
+  <form #empInputForm="ngForm">
+    <ion-list inset>
+      <ion-item>
+        <ion-label stacked>Employee Name</ion-label>
+        <ion-input type="text" [disabled]="!canEdit" [(ngModel)]="empInfo.employeeName" name="employeeName" #employeeNameInput1 (keydown)="moveNext('employeeName')" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label stacked>Employee Code</ion-label>
+        <ion-input type="text" [disabled]="!canEdit" [(ngModel)]="empInfo.employeeCode" name="employeeCode" #employeeCodeInput1 (keydown)="moveNext('employeeCode')" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label stacked>Email Id</ion-label>
+        <ion-input type="text" [disabled]="!canEdit" [(ngModel)]="empInfo.emailId" #emailIdInput1 name="emailId"  (keydown)="moveNext('emailId')" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label stacked>Designation</ion-label>
+        <ion-input type="text" [disabled]="!canEdit" [(ngModel)]="empInfo.designation" #designationInput1 name="designation"  (keydown)="moveNext('designation')" ></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label stacked>Mobile Number</ion-label>
+        <ion-input type="tel" [disabled]="!canEdit" [(ngModel)]="empInfo.mobile" #mobileInput1 name="mobile" ></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label stacked>Blood Group</ion-label>
+        <ion-input type="text" [disabled]="!canEdit" [(ngModel)]="empInfo.bloodGroup" #bloodGroupInput1 name="bloodGroup"  (keydown)="moveNext('bloodGroup')" ></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label stacked>Password</ion-label>
+        <ion-input type="text" [disabled]="!canEdit" [(ngModel)]="empInfo.password" #passwordInput1 name="password"  (keydown)="moveNext('password')" ></ion-input>
+      </ion-item>
+      <ion-item style="padding: 0; margin-top: 10px; margin-left: 3px;">
+        <ion-label>Admin access</ion-label>
+        <ion-toggle color="secondary" [disabled]="!canEdit" name="isAdmin" [(ngModel)]="empInfo.isAdmin" required></ion-toggle>
+      </ion-item>
+    </ion-list>
+  </form>
+
+</ion-card>
+
+</ion-content>

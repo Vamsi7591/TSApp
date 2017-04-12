@@ -1,0 +1,119 @@
+page-today {
+
+  .page-title {
+    color: #ffffff;
+    text-align: center;
+    align-items: center;
+    padding-left: 45px;
+    text-size-adjust: initial;
+  }
+
+  .home {
+    background: #ffffff;//B3B6B7
+  }
+
+  .item-md p {
+      overflow: inherit;
+      margin: 0 0 2px;
+      font-size: 1.4rem;
+      max-height: 36px;
+      text-overflow: inherit;
+      color: #666;
+      // line-height: 18px;
+  }
+
+  .item-ios p {
+      overflow: inherit;
+      margin: 0 0 2px;
+      font-size: 1.4rem;
+      line-height: 18px;
+      text-overflow: inherit;
+      color: #8e9093;
+      max-height: 36px;
+  }
+
+  // .card-md{
+  // width: 100%;
+  // }
+  .label-md {
+    margin: 5px 0px 5px 0;
+    text-align: start;
+  }
+
+  .card-margin {
+    // margin: 0px;
+    background: #FFF;
+    border: 1px solid #AAA;
+    // border-bottom: 2px solid #BBB;
+    padding: 0px;
+    overflow: hidden;
+  }
+
+  .card-md{
+  background: #c2c2c2;
+  }
+
+  .label {
+    // margin-bottom: 3px;
+    margin-right: 5px;
+    padding:0px;
+  }
+
+  .item-inner {
+    padding:0px;
+    padding-right: 0px !important;
+  }
+
+  .col {
+  padding-left:0px;
+  }
+
+  .ion-icon {
+    padding:0px;
+    margin: 0px;
+    display: inline-block;
+    font-size: 1.2em;
+    margin-right: 5px;
+  }
+
+  ion-col{
+    padding: 0
+  }
+
+  .card-content-md {
+    padding: 5px 0px 5px 5px;
+  }
+
+  .icon-pad{
+    // padding-bottom: 5px;
+    // padding-right: 5px;
+    margin-right: 3px;
+    margin-bottom: 3px;
+  }
+
+.item-divider-md {
+    padding-left: 16px;
+    color: #ffffff;
+    background-color: #003380;//rgba(0, 50, 128, 0.75);//#47778e;
+    border-bottom: 5px solid #ff6906;//rgba(255, 115, 22, 1);//#2ec95c;
+    font-size: 1.4rem;
+}
+
+}
+
+// Write CSS common to both ios and android.
+.ios, .md{
+    // .item p {
+    //     overflow: inherit;
+    //     margin: 0 0 2px;
+    //     font-size: 1.4rem;
+    //     max-height: 40px;
+    //     text-overflow: inherit;
+    //     color: #666;
+    //     line-height: inherit;
+    // }
+
+      .list {
+          // margin: 0;
+      }
+}

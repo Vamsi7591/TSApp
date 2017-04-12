@@ -1,0 +1,87 @@
+<ion-header>
+
+  <ion-navbar color="bg" class="page-title">
+    <ion-title>Time Sheet</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="todayInsert()" [hidden]="!inputForm.form.valid">
+        <ion-icon class="icon-pad" name="done-all"></ion-icon>
+      </button>
+      <button ion-button icon-only (click)="todayInsert()" [hidden]="canEdit">
+        <ion-icon class="icon-pad" name="create"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content no-padding class="home">
+<div>
+  <form (ngSubmit)="todayInsert()" #inputForm="ngForm" >
+  <ion-list no-lines>
+
+        <ion-item no-lines>
+          <ion-label>Project Name</ion-label>
+          <ion-icon name="arrow-dropdown-circle" item-right></ion-icon>
+          <ion-select class="ion-select" type="text" [disabled]="!canEdit" style="padding: 0;"
+           [(ngModel)]="todayInsertData._projectName" placeholder="Select here"
+            name="something" required>
+
+            <ion-option  *ngFor="let p of projectDetails"
+            value="{{p.projectName}}">
+              {{p.projectName}}
+            </ion-option>
+
+          </ion-select>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Date</ion-label>
+          <ion-icon name="calendar" item-right></ion-icon>
+          <ion-datetime placeholder="Select here" [disabled]="!canEdit"
+                        min="{{minDate}}" max="{{currentDate}}"
+                        displayFormat="DDDD MMM D, YYYY" pickerFormat="DDDD MMM D YYYY"
+                        (ionChange)="changeDate()"
+                        [(ngModel)]="todayInsertData._dateNow"
+                        name="something1" required>
+        </ion-datetime>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Start Time</ion-label>
+          <ion-icon name="clock" item-right></ion-icon>
+          <ion-datetime placeholder="Select here" [disabled]="!canEdit"
+                        minuteValues="00,05,10,15,20,25,30,35,40,45,50,55"
+                        displayFormat="hh:mm A" pickerFormat="hh mm A"
+                        (ionChange)="changeStartTime()" [(ngModel)]="todayInsertData._timeStarts"
+                        name="something2" required>
+        </ion-datetime>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>End Time</ion-label>
+          <ion-icon name="clock" item-right></ion-icon>
+          <ion-datetime placeholder="Select here" [disabled]="!canEdit"
+                        displayFormat="hh:mm A" pickerFormat="hh mm A"
+                        (ionChange)="changeEndTime()" [(ngModel)]="todayInsertData._timeEnds"
+                        name="something3" required>
+        </ion-datetime>
+        </ion-item>
+
+        <ion-item>
+          <h1 style="font-size: medium;">Task Description</h1>
+        </ion-item>
+
+        <ion-item>
+          <ion-textarea rows="7" [disabled]="!canEdit"
+                        autocomplete="true" spellcheck="true"
+                        placeholder="Please enter description here..."
+                        [(ngModel)]="todayInsertData._taskDescription"
+                        name="something4" required>
+        </ion-textarea>
+        </ion-item>
+
+  </ion-list>
+</form>
+</div>
+</ion-content>

@@ -1,0 +1,62 @@
+<ion-header>
+
+  <ion-navbar color="bg" class="page-title">
+    <!-- <button menuToggle ion-button icon-only>
+            <ion-icon name="menu"></ion-icon>
+        </button> -->
+    <!-- <ion-buttons left>
+      <button ion-button icon-only (click)="presentPopover($event)">
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons> -->
+    <ion-title>Time Sheet</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="addInput()">
+                <ion-icon class="icon-pad" name="add"></ion-icon>
+            </button>
+    </ion-buttons>
+  </ion-navbar>
+
+<ion-toolbar>
+        <ion-searchbar placeholder="Search by Project Name..."
+                       [(ngModel)]="queryText"
+                       (ionInput)="updateTimeSheet()">
+        </ion-searchbar>
+    </ion-toolbar>
+
+</ion-header>
+
+
+<ion-content no-padding class="home">
+
+<ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content
+      pullingIcon="arrow-dropdown"
+      pullingText="Pull to refresh"
+      refreshingSpinner="circles"
+      refreshingText="Refreshing...">
+    </ion-refresher-content>
+  </ion-refresher>
+
+
+  <ion-list>
+<ion-item-group *ngFor="let division of todayRep">
+<ion-card>
+<ion-item-divider color="blue" (click)="openViewHeader($event, division.divisionData)">Date: {{division.divisionName}}</ion-item-divider>
+    <ion-item class="home" text-wrap *ngFor="let item of division.divisionData" (click)="openView($event, item)">
+          <ion-row center>
+            <ion-col left width-70 text-left>
+              <h2 color="blue">{{item.projectName}}</h2>
+            </ion-col>
+            <ion-col center width-30 text-right>
+              <div>
+                <ion-icon class="ion-icon" name="clock"></ion-icon>{{item.totalHours}}</div>
+            </ion-col>
+          </ion-row>
+          <p>{{item.taskDescription}}</p>
+    </ion-item>
+</ion-card>
+ </ion-item-group>
+
+  </ion-list>
+</ion-content>
