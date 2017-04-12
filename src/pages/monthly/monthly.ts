@@ -4,6 +4,7 @@ import { NavController, NavParams } from 'ionic-angular';
 import { Chart } from 'chart.js';
 
 import { AuthService } from '../../providers/auth-service';
+import * as moment from 'moment';
 
 @Component({
     selector: 'page-monthly',
@@ -11,38 +12,38 @@ import { AuthService } from '../../providers/auth-service';
 })
 export class MonthlyPage {
 
-    month: string = 'April';
-    year: number = 2017;
+    month: any;
+    year: any;
     _monthName: string = '';
 
     public monthList: any = [
         {
             month: 'January',
-            id: '01'
+            id: '1'
         }, {
             month: 'February',
-            id: '02'
+            id: '2'
         }, {
             month: 'March',
-            id: '03'
+            id: '3'
         }, {
             month: 'April',
-            id: '04'
+            id: '4'
         }, {
             month: 'May',
-            id: '05'
+            id: '5'
         }, {
             month: 'June',
-            id: '06'
+            id: '6'
         }, {
             month: 'July',
-            id: '07'
+            id: '7'
         }, {
             month: 'August',
-            id: '08'
+            id: '8'
         }, {
             month: 'September',
-            id: '09'
+            id: '9'
         }, {
             month: 'October',
             id: '10'
@@ -87,6 +88,13 @@ export class MonthlyPage {
         public navParams: NavParams) {
 
         console.log('constructor');
+        this.year = moment().year();
+        let m_no = moment().month();
+        console.log('year : ', this.year);
+        console.log('month : ', m_no);
+        console.log('month name: ', this.monthList[m_no].month);
+        this.month = this.monthList[m_no].month;
+
 
         this.auth.loadMonthReport()
             .then(data => {
@@ -96,7 +104,9 @@ export class MonthlyPage {
 
     changeMonth() {
         console.log('changeMonth : ', this.month);
+    }
 
+    loadMonthly() {
         this.ngAfterViewInit();
     }
 

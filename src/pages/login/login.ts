@@ -31,6 +31,7 @@ export class LoginPage {
     userCredentials: User;
     flag: boolean = false;
     useObj: any;
+    localStorage: any;
 
     constructor(public nav: NavController,
         public navParams: NavParams,
@@ -41,6 +42,10 @@ export class LoginPage {
         public userSettings: UserSettings,
         public storage: Storage,
         public loadingCtrl: LoadingController) {
+
+        this.platform.ready().then(() => {
+            this.localStorage = window.localStorage;
+        });
 
         let options: NativeTransitionOptions = {
             direction: 'up',
@@ -163,6 +168,8 @@ export class LoginPage {
                         // set a key/value
                         // this.storage.set('user', this.registerCredentials);
                         let credentials = this.auth.getUserInfo();
+
+                        this.localStorage.setItem('role', credentials.role);
 
                         this.userSettings.userLoggedIn(
                             credentials.employeeCode,

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams, LoadingController } from 'ionic-angular';
+import { Platform, NavController, NavParams, LoadingController } from 'ionic-angular';
 // import { PopoverController } from 'ionic-angular';
 
 import { AuthService } from '../../providers/auth-service';
@@ -22,14 +22,31 @@ export class TodayPage {
     public todayDivisions: any;
     queryText: string = '';
     refresherTimeOut: any = 500;
-    _flag:boolean=false;
+    _flag: boolean = false;
+    isAdmin: boolean = false;
+    localStorage: any;
 
     constructor(
         public navCtrl: NavController,
         public navParams: NavParams,
+        public platform: Platform,
         public loadingController: LoadingController,
         // public popoverCtrl: PopoverController,
         public auth: AuthService) {
+
+        this.platform.ready().then(() => {
+            this.localStorage = window.localStorage;
+            if (this.localStorage.getItem('role') != null) {
+                if (this.localStorage.getItem('role') === "admin") {
+                    this.isAdmin = true;
+                } else {
+                    this.isAdmin = false;
+                }
+            }else {
+                this.isAdmin = false;
+            }
+        });
+
         this.todayRep = null;
     }
 
@@ -45,12 +62,12 @@ export class TodayPage {
         this.loadToday(false);
     }
 
-    ionViewDidEnter(){
-      console.log('ionViewDidEnter TodayPage');
-      if(this._flag){
-        this._flag = false;
-      this.loadToday(true);
-    }
+    ionViewDidEnter() {
+        console.log('ionViewDidEnter TodayPage');
+        if (this._flag) {
+            this._flag = false;
+            this.loadToday(true);
+        }
 
     }
 
@@ -100,20 +117,19 @@ export class TodayPage {
         this.todayRep = filteredTeams;
     }
 
-
     public addInput() {
-      this._flag = true;
+        this._flag = true;
         this.navCtrl.push(TodayInputPage);
     }
 
     openView($event, item) {
-      this._flag = true;
+        this._flag = true;
         this.navCtrl.push(TodayInputPage, item);
     }
 
     openViewHeader($event, division) {
         this.navCtrl.push(TodayDetailPage, division);
-        console.log(' Division : ',division);
+        console.log(' Division : ', division);
     }
 
 }

@@ -40,6 +40,7 @@ export class HomePage {
     days: any[];
     chosenHours: number;
     chosenMinutes: number;
+    isAdmin: boolean = false;
     //valueforngif = true;
 
     constructor(
@@ -61,17 +62,19 @@ export class HomePage {
         }
         else if (this.navParams.data.role === "admin") {
             // this.info = this.auth.getUserInfo();
-
+            this.isAdmin = true;
             this.employeeCode = this.navParams.data.employeeCode;
             this.password = this.navParams.data.password;
-            this.dayTab = EmployeeMasterPage;
+            this.dayTab = TodayPage;//EmployeeMasterPage;
+
 
         } else if (this.navParams.data.role === "user") {
             // this.info = this.auth.getUserInfo();
-
+            this.isAdmin = false;
             this.employeeCode = this.navParams.data.employeeCode;
             this.password = this.navParams.data.password;
             this.dayTab = TodayPage;
+
 
         } else {
 
@@ -80,8 +83,10 @@ export class HomePage {
             this.password = this.info.password;
 
             if (this.info.role === "admin") {
-                this.dayTab = EmployeeMasterPage;
+                this.isAdmin = true;
+                this.dayTab = TodayPage;//EmployeeMasterPage;
             } else {
+                this.isAdmin = false;
                 this.dayTab = TodayPage;
             }
         }

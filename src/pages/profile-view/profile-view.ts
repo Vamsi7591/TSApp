@@ -232,6 +232,7 @@ export class ProfileViewPage {
     logOut() {
         this.userSettings.userLoggedOut();
         this.localStorage.removeItem('userInfo');
+        this.localStorage.removeItem('role');
         this.navCtrl.parent.parent.setRoot(LoginPage);
     }
 

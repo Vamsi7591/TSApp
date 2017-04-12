@@ -10,13 +10,13 @@ import {
     NativeGeocoderReverseResult
 } from 'ionic-native';
 import {
- GoogleMaps,
- GoogleMap,
- GoogleMapsEvent,
- LatLng,
- CameraPosition,
- MarkerOptions,
- Marker
+    GoogleMaps,
+    GoogleMap,
+    GoogleMapsEvent,
+    LatLng,
+    CameraPosition,
+    MarkerOptions,
+    Marker
 } from '@ionic-native/google-maps';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
@@ -27,7 +27,7 @@ import { Toast } from '@ionic-native/toast';
 @Component({
     selector: 'page-maps',
     templateUrl: 'maps.html',
-    providers: [LocationAccuracy, Toast,GoogleMaps]
+    providers: [LocationAccuracy, Toast, GoogleMaps]
 })
 export class MapsPage {
 
@@ -96,9 +96,9 @@ export class MapsPage {
 
             this.map.isAvailable().then(() => {
 
-              let element: HTMLElement = document.getElementById('map_canvas');
+                let element: HTMLElement = document.getElementById('map_canvas');
 
-              let map: GoogleMap = this.googleMaps.create(element);
+                let map: GoogleMap = this.googleMaps.create(element);
 
                 // this.map = new GoogleMap('map_canvas', {
                 //             'backgroundColor': 'white',
@@ -145,35 +145,36 @@ export class MapsPage {
 
                             var addr = 'Your current location.';
 
-                            NativeGeocoder.reverseGeocode(res.latLng.lat, res.latLng.lng).then((result: NativeGeocoderReverseResult) => {
+                            NativeGeocoder.reverseGeocode(res.latLng.lat, res.latLng.lng)
+                                .then((result: NativeGeocoderReverseResult) => {
 
-                                this.ngr_result = result;
-                                // alert(JSON.stringify(this.ngr_result));
+                                    this.ngr_result = result;
+                                    // alert(JSON.stringify(this.ngr_result));
 
-                                addr = 'Address: ';
-                                if (this.ngr_result.houseNumber) {
-                                    addr = addr + this.ngr_result.houseNumber + ', ';
-                                }
+                                    addr = 'Address: ';
+                                    if (this.ngr_result.houseNumber) {
+                                        addr = addr + this.ngr_result.houseNumber + ', ';
+                                    }
 
-                                if (this.ngr_result.street) {
-                                    addr = addr + this.ngr_result.street + ', ';
-                                }
+                                    if (this.ngr_result.street) {
+                                        addr = addr + this.ngr_result.street + ', ';
+                                    }
 
-                                if (this.ngr_result.city) {
-                                    addr = addr + this.ngr_result.city;
-                                }
+                                    if (this.ngr_result.city) {
+                                        addr = addr + this.ngr_result.city;
+                                    }
 
-                                if (this.ngr_result.postalCode) {
-                                    addr = addr + ' - ' + this.ngr_result.postalCode + ', ';
-                                }
+                                    if (this.ngr_result.postalCode) {
+                                        addr = addr + ' - ' + this.ngr_result.postalCode + ', ';
+                                    }
 
-                                if (this.ngr_result.countryName) {
-                                    addr = addr + this.ngr_result.countryName + '.';
-                                }
+                                    if (this.ngr_result.countryName) {
+                                        addr = addr + this.ngr_result.countryName + '.';
+                                    }
 
-                                // alert(addr);
-                                // console.log("The address is\n " + result.city + " in " + result.countryName);
-                            })
+                                    // alert(addr);
+                                    // console.log("The address is\n " + result.city + " in " + result.countryName);
+                                })
                                 .catch((error: any) => {
                                     // console.log(error);
                                     alert(error);

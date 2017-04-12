@@ -36,6 +36,18 @@ page-monthly {
       color: #000;
     }
 
+.fab[mini] {
+    margin: -3px 0px 0px 0px;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+}
+
+.toolbar-ios {
+    padding: 1px;
+    min-height: 44px;
+}
+
     // .scroll-content {
     //         background-color: map-get($colors, light);
     //     }

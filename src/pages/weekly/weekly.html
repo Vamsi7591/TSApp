@@ -26,7 +26,7 @@
       </ion-segment-button>
     </ion-segment> -->
 
-    <ion-list no-lines>
+    <ion-list no-lines style="margin-right: 20%;">
 
           <ion-item no-lines>
             <ion-label>Select Week No</ion-label>
@@ -37,17 +37,26 @@
 
           <ion-item no-lines>
             <ion-label>Select Year</ion-label>
-            <ion-select [(ngModel)]="year">
+            <ion-select [(ngModel)]="year" (ionChange)="changeYear()">
               <ion-option>2011</ion-option>
               <ion-option>2012</ion-option>
               <ion-option>2013</ion-option>
+              <ion-option>2014</ion-option>
               <ion-option>2015</ion-option>
               <ion-option>2016</ion-option>
-              <ion-option checked="true">2017</ion-option>
+              <ion-option>2017</ion-option>
+              <!-- <ion-option checked="true">2017</ion-option> -->
             </ion-select>
           </ion-item>
 
     </ion-list>
+
+<ion-fab top right edge style="margin-top:54px; background-color: $bg">
+  <button ion-fab color="bg" mini (click)="loadWeekly()">
+    <ion-icon name="arrow-round-forward"></ion-icon>
+  </button>
+</ion-fab>
+
   </ion-toolbar>
 </ion-header>
 

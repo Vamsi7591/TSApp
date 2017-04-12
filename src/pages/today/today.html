@@ -9,6 +9,9 @@
         <ion-icon name="menu"></ion-icon>
       </button>
     </ion-buttons> -->
+    <button style="margin-right: -5%;" menuToggle ion-button icon-only *ngIf="isAdmin">
+        <ion-icon name="menu"></ion-icon>
+    </button>
     <ion-title>Time Sheet</ion-title>
     <ion-buttons end>
       <button ion-button icon-only (click)="addInput()">

@@ -6,6 +6,7 @@ import { StatusBar, Splashscreen, Network } from 'ionic-native';//Push
 import { Storage } from '@ionic/storage';
 
 // import { LoadingPage } from '../pages/loading/loading';
+import { TodayPage } from '../pages/today/today'
 import { LoginPage } from '../pages/login/login';
 import { EmployeeMasterPage } from '../pages/employee-master/employee-master'
 import { EmployeeProjectPage } from '../pages/employee-project/employee-project'
@@ -18,7 +19,7 @@ import { UserSettings } from '../providers/user-settings';
 import * as firebase from 'firebase';
 
 @Component({
-  selector: 'app',
+    selector: 'app',
     templateUrl: 'app.html'
 })
 export class MyApp {
@@ -77,6 +78,7 @@ export class MyApp {
 
         // used for an example of ngFor and navigation
         this.pages = [
+            { title: 'Time Sheet', component: TodayPage },
             { title: 'Employee Master', component: EmployeeMasterPage },
             { title: 'Project Master', component: ProjectMasterPage },
             { title: 'Employee Project', component: EmployeeProjectPage },
