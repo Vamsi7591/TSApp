@@ -2,6 +2,7 @@
 import { Component, NgZone } from "@angular/core";
 import { NavController, Platform } from 'ionic-angular';
 import {
+    GoogleMap,
     GoogleMapsLatLng,
     GoogleMapsMarker,
     GoogleMapsMarkerOptions,
@@ -11,7 +12,6 @@ import {
 } from 'ionic-native';
 import {
     GoogleMaps,
-    GoogleMap,
     GoogleMapsEvent,
     LatLng,
     CameraPosition,
@@ -94,11 +94,9 @@ export class MapsPage {
                 }
             });
 
-            this.map.isAvailable().then(() => {
+            GoogleMap.isAvailable().then(() => {
 
-                let element: HTMLElement = document.getElementById('map_canvas');
-
-                let map: GoogleMap = this.googleMaps.create(element);
+                this.map = new GoogleMap('map_canvas');
 
                 // this.map = new GoogleMap('map_canvas', {
                 //             'backgroundColor': 'white',

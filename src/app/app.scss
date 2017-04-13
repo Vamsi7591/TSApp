@@ -37,10 +37,28 @@
     border-bottom: 1px solid #3F51B5;
 }
 
-.button-md {
+.button-md{
  border-radius: 16px;
  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0), 0 3px 1px -2px rgba(0, 0, 0, 0), 0 1px 5px 0 rgba(0, 0, 0, 0);
 }
+
+.item-ios .item-button {
+    padding: 0 .5em;
+    height: 100%;
+    font-size: 1.3rem;
+}
+
+.item-ios [item-right] {
+   margin: 0;
+}
+
+ button.item-ios:not([detail-none]) .item-inner{
+   background-image: null;
+    padding-right: 0;
+    background-repeat: 0;
+    background-position: 0;
+    background-size: 0;
+ }
 
 .activeHighlight{
   background-color: map-get($colors, orange);

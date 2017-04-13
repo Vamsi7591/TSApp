@@ -221,9 +221,11 @@ export class TodayInputPage {
             } else if (_eT == _sT) {
                 console.log(': Equal : ');
                 message = "Start time and end time should be different.";
+                this.todayInsertData._timeDiff = null;
             } else {
                 console.log(': invalid : ');
                 message = "Invalid time selection.";
+                this.todayInsertData._timeDiff = null;
             }
         }
 

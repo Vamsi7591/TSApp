@@ -178,7 +178,11 @@ export class ProfileViewPage {
 
     navToMaps() {
         this._zone.run(() => {
-            this.navCtrl.push(GoogleMapsPage);
+            if (this._platform.is('android')) {
+                this.navCtrl.push(MapsPage);
+            } else {
+                this.navCtrl.push(GoogleMapsPage);
+            }
         });
     }
 

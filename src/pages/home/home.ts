@@ -109,7 +109,7 @@ export class HomePage {
             { title: 'Sunday', dayCode: 0, checked: false }
         ];
 
-        this.addNotifications();
+        // this.addNotifications();
     }
 
     ionViewDidLoad() {
