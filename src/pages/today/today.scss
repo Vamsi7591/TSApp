@@ -14,9 +14,19 @@ page-today {
 
   .item-md p {
       overflow: inherit;
-      margin: 0 0 2px;
+      margin: 0;
       font-size: 1.4rem;
-      max-height: 38px;
+      max-height: 37px;
+      text-overflow: inherit;
+      color: #666;
+      line-height: 20px;
+  }
+
+  .item-wp p {
+      overflow: inherit;
+      margin: 0;
+      font-size: 1.4rem;
+      max-height: 36px;
       text-overflow: inherit;
       color: #666;
       line-height: 18px;

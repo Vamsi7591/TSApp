@@ -20,7 +20,7 @@ page-summary-details {
     align-items: center;
     text-align: center;
   }
-  
+
   .card-margin {
     margin: 0;
     background: #FFF;
@@ -30,6 +30,13 @@ page-summary-details {
     overflow: hidden;
   }
 
+  .fab[mini] {
+      margin: -3px 0px 0px 0px;
+      width: 40px;
+      height: 40px;
+      line-height: 40px;
+  }
+  
   .label {
     margin:0px;
   }

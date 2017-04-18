@@ -7,6 +7,7 @@ import { UserSettings } from '../../providers/user-settings';
 
 import { LoginPage } from '../login/login';
 import { TodayPage } from '../today/today';
+import { TodayInputPage } from '../today-input/today-input';
 import { MonthlyPage } from '../monthly/monthly';
 import { WeeklyPage } from '../weekly/weekly';
 import { ProfileViewPage } from '../profile-view/profile-view';
@@ -48,6 +49,7 @@ export class HomePage {
         public userSettings: UserSettings,
         public navParams: NavParams,
         public platform: Platform,
+        private localNotifications: LocalNotifications,
         public alertCtrl: AlertController,
         public keyboard: Keyboard,
         private auth: AuthService) {
@@ -91,6 +93,10 @@ export class HomePage {
             }
         }
 
+        // LocalNotifications.on('click', (notification, state) => {
+        //     this.dayTab = TodayInputPage;
+        // });
+
         console.log('ionViewDidLoad HomePage', this.navParams.data);
         // this.userSettings.isLoggedIn('user').then(userObj => this.flag = userObj);
 
@@ -109,7 +115,7 @@ export class HomePage {
             { title: 'Sunday', dayCode: 0, checked: false }
         ];
 
-        // this.addNotifications();
+        this.addNotifications();
     }
 
     ionViewDidLoad() {
@@ -164,7 +170,11 @@ export class HomePage {
                 }
 
                 if (dayDifference === 0) {
-                    firstNotificationTime.setHours(10 + (24 * 8));
+                    if (firstNotificationTime.getHours() <= 9) {
+                        firstNotificationTime.setHours(10);
+                    } else {
+                        firstNotificationTime.setHours(10 + (24 * 8));
+                    }
                 } else {
                     firstNotificationTime.setHours(10 + (24 * (dayDifference)));//firstNotificationTime.getHours()
                 }
@@ -179,7 +189,10 @@ export class HomePage {
                     title: 'TimeSheet',
                     text: 'Hi, Please fill timesheet.',//today\'s
                     at: firstNotificationTime,
-                    every: 'week'
+                    every: 'week',
+                    icon: 'file://assets/icon/logo_wilco.png',
+                    smallIcon: 'res://drawable-hdpi/loading_icon.png',
+                    // color: 'FF0000'
                 };
 
                 this.notifications.push(notification);
@@ -201,7 +214,11 @@ export class HomePage {
                 }
 
                 if (dayDifference === 0) {
-                    firstNotificationTime.setHours(18 + (24 * 8));
+                    if (firstNotificationTime.getHours() <= 17) {
+                        firstNotificationTime.setHours(18);
+                    } else {
+                        firstNotificationTime.setHours(18 + (24 * 8));
+                    }
                 } else {
                     firstNotificationTime.setHours(18 + (24 * (dayDifference)));//firstNotificationTime.getHours()
                 }
@@ -212,7 +229,9 @@ export class HomePage {
                     title: 'TimeSheet',
                     text: 'Hi, Please fill timesheet.',//today\'s
                     at: firstNotificationTime,
-                    every: 'week'
+                    every: 'week',
+                    icon: 'file://assets/icon/logo_wilco.png',
+                    smallIcon: 'res://drawable-hdpi/loading_icon.png'
                 };
 
                 this.notifications.push(notification);
@@ -271,12 +290,23 @@ export class HomePage {
         // LocalNotifications.getAll().then((_gas) =>
         //     alert("getAll : " + _gas));
 
-        LocalNotifications.on('click', this.check());
+        // LocalNotifications.on('trigger', this.check('trigger'));
+
+        // LocalNotifications.on('click', (notification, state) => {
+        //     // this.dayTab = TodayInputPage;
+        //     // this.check('home');
+        // });
+
+        // LocalNotifications.on('trigger', (notification, state) => {
+        //     this.dayTab = TodayInputPage;
+        // });
+
+        // LocalNotifications.on('schedule', this.check('schedule'));
 
     }
 
-    check() {
-        // alert(" click ");
+    check(val): void {
+        alert(val);
     }
 
 }

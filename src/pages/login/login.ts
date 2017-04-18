@@ -27,7 +27,7 @@ export class User {
 })
 export class LoginPage {
     loading: Loading;
-    registerCredentials = { employeeCode: 'e007', password: '12345' };
+    registerCredentials = { employeeCode: 'e007', password: '00000' };// admin
     userCredentials: User;
     flag: boolean = false;
     useObj: any;

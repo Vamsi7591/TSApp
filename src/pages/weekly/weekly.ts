@@ -322,31 +322,31 @@ export class WeeklyPage {
             }
         ];
 
-        for (let k = 0; k < this.pieChartLabels.length; k++) {
-
-            let weekData = {
-                label: this.pieChartLabels[k],
-
-                backgroundColor: this.weeksColorArray[k].backgroundColor,
-                // borderColor: this.weeksColorArray[k].borderColor,
-                // pointBorderColor: this.weeksColorArray[k].pointBorderColor,
-                // pointBackgroundColor: this.weeksColorArray[k].pointBackgroundColor,
-                // pointHoverBackgroundColor: this.weeksColorArray[k].pointHoverBackgroundColor,
-                hoverBackgroundColor: this.weeksColorArray[k].pointHoverBorderColor,
-                // pointHoverBorderWidth: 2,
-                // pointRadius: 1,
-                // pointHitRadius: 10,
-                // lineTension: 0.1,
-                // borderDashOffset: 0.0,
-                // borderCapStyle: 'butt',
-                // borderJoinStyle: 'miter',
-                // spanGaps: false,
-
-                data: '' + this.pieChartData[k]
-            };
-
-            this.weekRespDataSetsArray.push(weekData);
-        }
+        // for (let k = 0; k < this.pieChartLabels.length; k++) {
+        //
+        //     let weekData = {
+        //         label: this.pieChartLabels[k],
+        //
+        //         backgroundColor: this.weeksColorArray[k].backgroundColor,
+        //         // borderColor: this.weeksColorArray[k].borderColor,
+        //         // pointBorderColor: this.weeksColorArray[k].pointBorderColor,
+        //         // pointBackgroundColor: this.weeksColorArray[k].pointBackgroundColor,
+        //         // pointHoverBackgroundColor: this.weeksColorArray[k].pointHoverBackgroundColor,
+        //         hoverBackgroundColor: this.weeksColorArray[k].pointHoverBorderColor,
+        //         // pointHoverBorderWidth: 2,
+        //         // pointRadius: 1,
+        //         // pointHitRadius: 10,
+        //         // lineTension: 0.1,
+        //         // borderDashOffset: 0.0,
+        //         // borderCapStyle: 'butt',
+        //         // borderJoinStyle: 'miter',
+        //         // spanGaps: false,
+        //
+        //         data: '' + this.pieChartData[k]
+        //     };
+        //
+        //     this.weekRespDataSetsArray.push(weekData);
+        // }
 
         var data = {
             labels: this.pieChartLabels,
@@ -375,10 +375,6 @@ export class WeeklyPage {
         this.pieChart = new Chart(this.pieCanvas.nativeElement, {
             type: 'pie',
             data: data
-            // data: {
-            //     labels: this.pieChartLabels,
-            //     datasets: this.weekRespDataSetsArray
-            // }
         });
     }
 

@@ -163,6 +163,15 @@
     </ion-buttons>
   </ion-navbar>
 
+  <ion-navbar color="white" hideWhen="ios">
+    <h2 style="color: black; margin:0px;padding: 0;">Finger Print</h2>
+    <ion-buttons end>
+      <button ion-button icon-only clear (click)="fingerPrint()">
+        <ion-icon class="icon-pad" name="finger-print"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
   <ion-navbar color="white">
     <h2 style="color: black; margin:0px;padding: 0;">Scan Barcode</h2>
     <ion-buttons end>
@@ -173,7 +182,7 @@
   </ion-navbar>
 
   <ion-navbar color="white" *ngIf="!hideDevice">
-    <h2 style="color: black; margin:0px;padding: 0;" [hidden]="hideDevice">Device UUID is: {{deviceId}}</h2>
+    <h2 style="color: black; margin:0px;padding: 0;" [hidden]="hideDevice">Device ID {{deviceId}}</h2>
     <ion-buttons end>
       <button ion-button icon-only clear [hidden]="hideDevice" (click)="getDeviceId()">
         <ion-icon class="icon-pad" [name]="platformIcon"></ion-icon>
@@ -182,7 +191,7 @@
   </ion-navbar>
 
   <ion-navbar color="white">
-    <h2 style="color: black; margin:0px;padding: 0;">Phone Call</h2>
+    <h2 style="color: black; margin:0px;padding: 0;">Contact Us</h2>
     <ion-buttons end>
       <button ion-button icon-only clear (click)="makeCall()">
         <ion-icon class="icon-pad" name="call"></ion-icon>

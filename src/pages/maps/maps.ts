@@ -120,7 +120,7 @@ export class MapsPage {
                 //             // }
                 //             });
 
-                // this.map.clear();
+                this.map.clear();
 
                 this.map.one(GoogleMapsEvent.MAP_READY).then((data: any) => {
                     // alert("GoogleMap.onMapReady(): " + JSON.stringify(data));
