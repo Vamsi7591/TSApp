@@ -71,3 +71,12 @@
 .activeHighlight{
   background-color: map-get($colors, orange);
 }
+
+.toolbar-title-ios {
+    font-size: 1.5rem;
+    font-weight: 200;
+    text-align: center;
+    color: #000;
+    pointer-events: auto;
+    width: 100%;
+}
