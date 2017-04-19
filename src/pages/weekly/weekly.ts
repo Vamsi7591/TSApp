@@ -75,10 +75,6 @@ export class WeeklyPage {
 
     console.log('Weeks: ', this.weeks);
 
-    // this.myDate = new Date();
-
-    // this.year = _year;
-
     if (this.year === moment().year()) {
       this.week = moment().isoWeek();
     } else {
