@@ -32,6 +32,14 @@
     margin:0;
 }
 
+.toolbar-title-ios {
+    font-size: 1.5rem;
+    font-weight: 300;
+    text-align: center;
+    color: #000;
+    pointer-events: auto;
+}
+
 .item-md.item-block .item-inner {
     padding-right: 0px;
     border-bottom: 1px solid #3F51B5;

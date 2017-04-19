@@ -61,6 +61,17 @@ page-today-input {
     font-size: 1.6rem;
   }
 
+  .item-ios {
+    position: relative;
+    padding-left: 12px;
+    border-radius: 0;
+    font-size: 1.7rem;
+    padding-right: 6px;
+    color: #000;
+    background-color: #fff;
+    transition: background-color 200ms linear;
+  }
+
   .item-inner {
     padding-right: 0px !important;
   }
