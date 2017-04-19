@@ -19,10 +19,7 @@ export class WeeklyPage {
 
   @ViewChild('pieCanvas') pieCanvas;
 
-<<<<<<< HEAD
   public weekDetails: any;
-=======
->>>>>>> origin/master
   pieChart: any;
   public pieChartLabels: string[] = [];
   public pieChartData: number[] = [];
@@ -35,7 +32,6 @@ export class WeeklyPage {
 
 
 
-<<<<<<< HEAD
   constructor(public navCtrl: NavController, public auth: AuthService, public navParams: NavParams) {
     console.log('constructor WeeklyPage');
 
@@ -117,79 +113,10 @@ export class WeeklyPage {
   }
 
   loadPie() {
+
     // Pie
     // this.pieChartLabels = ['TimeSheet', 'Lunch', 'Tea Break', 'IONIC 2', 'VRI', 'Salesforce'];
     // this.pieChartData = [12, 3, 1, 14, 19, 25];
-=======
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-    console.log('constructor WeeklyPage');
-
-    let isoWeeks = moment().isoWeeksInYear();
-    console.log('isoWeeks: ', isoWeeks);
-
-    for (let i = 1; i <= isoWeeks; i++) {
-      this.weeks.push(i);
-    }
-
-    console.log('Weeks: ', this.weeks);
-
-    // this.myDate = new Date();
-
-    this.year = moment().year();//this.myDate.getFullYear();
-
-    // var _today = (1 + this.myDate.getMonth()) + "/" + this.myDate.getDate() + "/" + this.myDate.getFullYear();
-    this.week = moment().isoWeek();//_today, "MM/DD/YYYY"
-    console.log('week: ', this.week);
-  }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad WeeklyPage');
-  }
-
-  ionViewWillEnter() {
-    console.log('ionViewWillEnter WeeklyPage');
-    // this.ionViewDidLoad();
-  }
-
-  changeYear() {
-    console.log('changeWeek : ', this.year);
-
-    let isoWeeks = moment(this.year, "YYYY").isoWeeksInYear();
-    console.log('isoWeeks: ', isoWeeks);
-
-    this.weeks = [];
-    for (let i = 1; i <= isoWeeks; i++) {
-      this.weeks.push(i);
-    }
-
-    console.log('Weeks: ', this.weeks);
-
-    // this.myDate = new Date();
-
-    // this.year = _year;
-
-    if (this.year === moment().year()) {
-      this.week = moment().isoWeek();
-    } else {
-      this.week = '1';
-    }
-    console.log('week: ', this.week);
-
-  }
-
-  loadWeekly() {
-    this.ngAfterViewInit();
-  }
-
-  changeWeek() {
-    console.log('changeWeek : ', this.week);
-  }
-
-  ngAfterViewInit() {
-    // Pie
-    this.pieChartLabels = ['TimeSheet', 'Lunch', 'Tea Break', 'IONIC 2', 'VRI', 'Salesforce'];
-    this.pieChartData = [12, 3, 1, 14, 19, 25];
->>>>>>> origin/master
     this.weekRespDataSetsArray = [];
 
     this.weeksColorArray = [
@@ -417,17 +344,10 @@ export class WeeklyPage {
     ];
 
     // for (let k = 0; k < this.pieChartLabels.length; k++) {
-<<<<<<< HEAD
     //
     //     let weekData = {
     //         label: this.pieChartLabels[k],
     //
-=======
-    //
-    //     let weekData = {
-    //         label: this.pieChartLabels[k],
-    //
->>>>>>> origin/master
     //         backgroundColor: this.weeksColorArray[k].backgroundColor,
     //         // borderColor: this.weeksColorArray[k].borderColor,
     //         // pointBorderColor: this.weeksColorArray[k].pointBorderColor,
@@ -475,23 +395,7 @@ export class WeeklyPage {
         {
           data: this.pieChartData,
           backgroundColor: this.backgroundClr,
-          // [
-          //   "#FF6384",
-          //   "#36A2EB",
-          //   "#FFCE56",
-          //   "#4A235A",
-          //   "#912020",
-          //   "#35565B"
-          // ],
           hoverBackgroundColor: this.hoverBackgroundClr
-          // [
-          //   "#FF6384",
-          //   "#36A2EB",
-          //   "#FFCE56",
-          //   "#4A235A",
-          //   "#912020",
-          //   "#35565B"
-          // ]
         }]
     };
 
