@@ -52,7 +52,7 @@ export class TodayPage {
     LocalNotifications.on('click', (notification, state) => {
       this.navCtrl.parent.select(0);
       // if (!this._flag)
-      this.addInput();
+      // this.addInput();
     });
     this.todayRep = null;
   }

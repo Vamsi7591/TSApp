@@ -1,6 +1,6 @@
 ﻿import { Component } from '@angular/core';
 import { NavController, NavParams, Platform, AlertController } from 'ionic-angular';
-import { StatusBar, LocalNotifications, Keyboard } from 'ionic-native';
+import { StatusBar, LocalNotifications, Keyboard,Badge } from 'ionic-native';
 
 import { AuthService } from '../../providers/auth-service';
 import { UserSettings } from '../../providers/user-settings';
@@ -93,9 +93,11 @@ export class HomePage {
             }
         }
 
-        // LocalNotifications.on('click', (notification, state) => {
-        //     this.dayTab = TodayInputPage;
-        // });
+        LocalNotifications.on('click', (notification, state) => {
+            // this.dayTab = TodayInputPage;
+            this.nav.push(TodayInputPage);
+            // Badge.increase(1);
+        });
 
         console.log('ionViewDidLoad HomePage', this.navParams.data);
         // this.userSettings.isLoggedIn('user').then(userObj => this.flag = userObj);
@@ -157,6 +159,13 @@ export class HomePage {
         let currentDate = new Date();
         let currentDay = currentDate.getDay(); // Sunday = 0, Monday = 1, etc.
 
+        var _title = '';
+        var _text = 'Hi, Please fill today\'s work status.';
+        if (this.platform.is('android')) {
+        _title = 'TimeSheet';
+        }
+
+
         // Morning 10 'O'clock
         for (let day of this.days) {
 
@@ -170,7 +179,7 @@ export class HomePage {
                 }
 
                 if (dayDifference === 0) {
-                    if (firstNotificationTime.getHours() <= 9) {
+                    if (firstNotificationTime.getHours() <= 9 && firstNotificationTime.getMinutes() <= 59) {
                         firstNotificationTime.setHours(10);
                     } else {
                         firstNotificationTime.setHours(10 + (24 * 8));
@@ -186,13 +195,12 @@ export class HomePage {
 
                 let notification = {
                     id: day.dayCode,
-                    title: 'TimeSheet',
-                    text: 'Hi, Please fill timesheet.',//today\'s
+                    title:_title ,
+                    text: _text,
                     at: firstNotificationTime,
                     every: 'week',
                     icon: 'file://assets/icon/logo_wilco.png',
-                    smallIcon: 'res://drawable-hdpi/loading_icon.png',
-                    // color: 'FF0000'
+                    smallIcon: 'res://drawable-hdpi/loading_icon.png'
                 };
 
                 this.notifications.push(notification);
@@ -214,7 +222,7 @@ export class HomePage {
                 }
 
                 if (dayDifference === 0) {
-                    if (firstNotificationTime.getHours() <= 17) {
+                    if (firstNotificationTime.getHours() <= 17 && firstNotificationTime.getMinutes() <= 59) {
                         firstNotificationTime.setHours(18);
                     } else {
                         firstNotificationTime.setHours(18 + (24 * 8));
@@ -226,8 +234,8 @@ export class HomePage {
 
                 let notification = {
                     id: day.dayCode + 5,
-                    title: 'TimeSheet',
-                    text: 'Hi, Please fill timesheet.',//today\'s
+                    title: _title,
+                    text: _text,//'Hi, Please fill timesheet.',//today\'s
                     at: firstNotificationTime,
                     every: 'week',
                     icon: 'file://assets/icon/logo_wilco.png',
@@ -305,8 +313,8 @@ export class HomePage {
 
     }
 
-    check(val): void {
-        alert(val);
-    }
+    // check(val): void {
+    //     alert(val);
+    // }
 
 }
