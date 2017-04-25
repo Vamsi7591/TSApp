@@ -104,4 +104,5 @@
     <plugin name="cordova-plugin-geolocation" spec="~2.4.2" />
     <plugin name="cordova-plugin-android-fingerprint-auth" spec="~1.2.7" />
     <plugin name="de.appplant.cordova.plugin.local-notification" spec="~0.8.4" />
+    <plugin name="cordova-plugin-battery-status" spec="~1.2.3" />
 </widget>

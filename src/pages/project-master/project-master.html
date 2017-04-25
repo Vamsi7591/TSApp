@@ -16,34 +16,53 @@
 
 
 <ion-content no-padding class="home">
-  <ion-list no-lines >
-    <ion-item class="home" text-wrap no-lines *ngFor="let item of projectDetails">
-      <ion-card class="card-margin">
-        <ion-card-content>
-          <ion-row center>
-            <ion-col left width-70 text-left>
-              <h2 color="primary">{{item.projectName}}</h2>
-            </ion-col>
-            <ion-col center width-30 text-right>
-              <div>{{item.projectCode}}</div>
-            </ion-col>
 
-            <!-- <ion-col center width-20 text-right>
-              <div ng-hide=[!item.commonFlag]><ion-icon name="checkmark-circle"></ion-icon></div>
-              <div ng-hide=[item.commonFlag]><ion-icon name="close-circle"></ion-icon></div>
+  <!-- <ion-scroll id="ionScrollRegion" direction="x">
+      <div id="content">
+        <div class="item" *ngFor="let item of projectDetails">{{item.projectName}}</div>
+      </div>
+    </ion-scroll> -->
 
-            <button ion-button icon-only color="primary" >
-            <ion-icon name="close-circle"></ion-icon></button>
-            </ion-col> -->
+      <!-- <ion-list no-lines >
+        <ion-item class="home" text-wrap no-lines *ngFor="let item of projectDetails">
+          <ion-card class="card-margin">
+            <ion-card-content>
+              <ion-row center>
+                <ion-col left width-70 text-left>
+                  <h2 color="primary">{{item.projectName}}</h2>
+                </ion-col>
+                <ion-col center width-30 text-right>
+                  <div>{{item.projectCode}}</div>
+                </ion-col>
 
-            <!-- <ion-col *ngIf=[item.commonFlag] center width-20 text-right>
-            <button ion-button icon-only color="primary" >
-            <ion-icon name="checkmark-circle"></ion-icon></button>
-            </ion-col> -->
+              </ion-row>
+            </ion-card-content>
+          </ion-card>
+        </ion-item>
+      </ion-list> -->
 
-          </ion-row>
-        </ion-card-content>
-      </ion-card>
-    </ion-item>
-  </ion-list>
+
+              <!-- <ion-col center width-20 text-right>
+                <div ng-hide=[!item.commonFlag]><ion-icon name="checkmark-circle"></ion-icon></div>
+                <div ng-hide=[item.commonFlag]><ion-icon name="close-circle"></ion-icon></div>
+
+              <button ion-button icon-only color="primary" >
+              <ion-icon name="close-circle"></ion-icon></button>
+              </ion-col> -->
+
+              <!-- <ion-col *ngIf=[item.commonFlag] center width-20 text-right>
+              <button ion-button icon-only color="primary" >
+              <ion-icon name="checkmark-circle"></ion-icon></button>
+              </ion-col> -->
+
+
+  <ion-row>
+    <div style="padding-right: 20px;" *ngFor="let item of projectDetails" (click)="pos(item)">
+    <ion-card class="card-margin">
+      <ion-card-content>
+    <h2 >{{item.projectName}}</h2>
+</ion-card-content>
+</ion-card>
+</div>
+</ion-row>
 </ion-content>
