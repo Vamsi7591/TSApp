@@ -14,6 +14,7 @@
 
 </ion-header>
 
+<!-- Body -->
 
 <ion-content no-padding class="home">
 
@@ -57,12 +58,82 @@
 
 
   <ion-row>
-    <div style="padding-right: 20px;" *ngFor="let item of projectDetails" (click)="pos(item)">
-    <ion-card class="card-margin">
+    <!-- style="padding-right: 10px;padding-left: 10px" -->
+    <div *ngFor="let item of projectDetails; let item = index" (click)="pos(item)"
+    [class.selected]="item === currentSelected">
+      <ion-card class="card-margin">
       <ion-card-content>
-    <h2 >{{item.projectName}}</h2>
-</ion-card-content>
-</ion-card>
-</div>
+        <ion-row center>
+          <ion-col left width-70 text-left>
+            <h2 color="primary">{{projectDetails[item].projectName}}</h2>
+          </ion-col>
+          <ion-col center width-30 text-right>
+            <div>{{projectDetails[item].projectCode}}</div>
+          </ion-col>
+
+        </ion-row>
+      </ion-card-content>
+      </ion-card>
+    </div>
 </ion-row>
+
 </ion-content>
+<ion-header style="margin-top: 55%;">
+
+<ion-card padding>
+  <ion-navbar color="green" class="page-title" style="margin-top: 0%; padding-right: 0px;">
+    <ion-title>{{_projectDetails.projectName}}</ion-title>
+  </ion-navbar>
+
+  <ion-list no-lines>
+<!-- [disabled]="!canEdit" -->
+        <!-- <ion-item >
+          <ion-label>Project Name</ion-label>
+          <ion-icon name="arrow-dropdown-circle" item-right></ion-icon>
+          <ion-select class="ion-select" type="text"  style="padding: 0;"
+           [(ngModel)]="_projectDetails.projectName" placeholder="Select here"
+            name="something" required>
+
+            <ion-option  *ngFor="let item of projectDetails"
+            value="{{item.projectName}}">
+              {{item.projectName}}
+            </ion-option>
+
+          </ion-select>
+        </ion-item> -->
+
+        <ion-item>
+          <ion-label>Project Name</ion-label>
+          <ion-label style="text-align: end;">{{_projectDetails.projectName}}</ion-label>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Project Id</ion-label>
+          <ion-label style="text-align: end;">{{_projectDetails.projectCode}}</ion-label>
+        </ion-item>
+
+        <ion-item >
+          <ion-label>Common Flag</ion-label>
+          <ion-toggle color="secondary" (ionChange)="changeFlag()" [(ngModel)]="_projectDetails.commonFlag"></ion-toggle>
+        </ion-item>
+
+        <ion-item>
+          <ion-grid style="width: 100%;">
+            <ion-row style="width: 100%;">
+              <ion-col>
+                  <button ion-button round class="ion-row" (click)="assignDelete()" >Delete</button>
+              </ion-col>
+              <ion-col>
+                  <button ion-button round class="ion-row" (click)="assignUpdate()" >Update</button>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+          <!-- <ion-label>Update</ion-label>
+          <ion-label style="text-align: end;">Delete</ion-label> -->
+        </ion-item>
+
+    </ion-list>
+
+  </ion-card>
+
+</ion-header>
