@@ -4,30 +4,63 @@ import { NavController, NavParams } from 'ionic-angular';
 import { AuthService } from '../../providers/auth-service';
 
 @Component({
-    selector: 'page-project-master',
-    templateUrl: 'project-master.html'
+  selector: 'page-project-master',
+  templateUrl: 'project-master.html'
 })
 export class ProjectMasterPage {
 
-    public projectDetails: any;
+  public projectDetails: any;
+  _projectDetails = {
+    commonFlag: false,
+    projectCode: '',
+    projectName: ''
+  }
 
-    constructor(public navCtrl: NavController,
-        public auth: AuthService,
-        public navParams: NavParams) {
-        this.projectDetails = null;
-    }
+  public viewOrEdit: boolean = false;
+  public canEdit: boolean = false;
+  myIcon: string = "";
 
-    ionViewDidLoad() {
-        this.loadProjectDetails();
-        console.log('ionViewDidLoad ProjectMasterPage');
-    }
+  currentSelected: any;
 
-    loadProjectDetails() {
-      this.auth.loadProjectDetails()
-          .then(data => {
-              this.projectDetails = data;
-          });
-    }
+  constructor(public navCtrl: NavController,
+    public auth: AuthService,
+    public navParams: NavParams) {
+    this.projectDetails = null;
+    // this._projectDetails = null;
+  }
 
+  ngAfterViewInit() {
+    this.loadProjectDetails();
+  }
+
+  ionViewDidLoad() {
+    console.log('ionViewDidLoad ProjectMasterPage');
+  }
+
+  loadProjectDetails() {
+    this.auth.loadProjectDetails()
+      .then(data => {
+        this.projectDetails = data;
+        this.pos(0);
+      });
+  }
+
+  pos(item) {
+    this.currentSelected = item;
+    this._projectDetails = this.projectDetails[item];
+    console.log('pos: ', item);
+  }
+
+  changeFlag() {
+
+  }
+
+  assignDelete() {
+
+  }
+
+  assignUpdate() {
+
+  }
 
 }

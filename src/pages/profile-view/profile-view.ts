@@ -26,13 +26,14 @@ import { UserSettings } from '../../providers/user-settings';
 
 import * as firebase from 'firebase';
 import { AndroidFingerprintAuth, AFAAuthOptions } from '@ionic-native/android-fingerprint-auth';
+import { BatteryStatus, BatteryStatusResponse } from '@ionic-native/battery-status';
 
 declare var window: any;
 
 @Component({
   selector: 'page-profile-view',
   templateUrl: 'profile-view.html',
-  providers: [SpinnerDialog, BrowserTab, CallNumber, AndroidFingerprintAuth]
+  providers: [SpinnerDialog, BrowserTab, CallNumber, AndroidFingerprintAuth, BatteryStatus]
 })
 export class ProfileViewPage {
 
@@ -70,10 +71,14 @@ export class ProfileViewPage {
   public base64Image: any = 'assets/icon/user_icon.png';
 
   deviceId: string = '';
+  batteryPercentage: any = 0;
+
   hideDevice = false;
   platformIcon: any;
+  batteryIcon: any;
 
   localStorage: any;
+  subscription: any;
 
   constructor(public navCtrl: NavController,
     private _zone: NgZone,
@@ -85,6 +90,7 @@ export class ProfileViewPage {
     public loadingCtrl: LoadingController,
     private _viewController: ViewController,
     private spinnerDialog: SpinnerDialog,
+    private batteryStatus: BatteryStatus,
     public formBuilder: FormBuilder,
     private browserTab: BrowserTab,
     private callNumber: CallNumber,
@@ -126,6 +132,23 @@ export class ProfileViewPage {
         this.empInfo = JSON.parse(this.localStorage.getItem('userInfo'));
         this.submitAttempt = true;
       }
+
+      // watch change in battery status
+      this.subscription = this.batteryStatus.onChange().subscribe(
+        (status: BatteryStatusResponse) => {
+          console.log(status.level, status.isPlugged);
+          this.batteryPercentage = status.level;
+
+          if (status.isPlugged) {
+            this.batteryIcon = "battery-charging";
+          } else if (status.level === 100) {
+            this.batteryIcon = "battery-full";
+          } else {
+            this.batteryIcon = "battery-dead";
+          }
+        }
+      );
+
 
     });
   }
@@ -292,6 +315,8 @@ export class ProfileViewPage {
     this.localStorage.removeItem('userInfo');
     this.localStorage.removeItem('role');
     this.navCtrl.parent.parent.setRoot(LoginPage);
+    // stop watch
+    this.subscription.unsubscribe();
   }
 
   ionViewWillLeave() {

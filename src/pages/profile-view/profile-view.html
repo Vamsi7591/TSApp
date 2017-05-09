@@ -154,6 +154,16 @@
     </ion-buttons>
   </ion-navbar>
 
+  <ion-navbar color="white" hideWhen="browser">
+    <h2 style="color: black; margin:0px;padding: 0;">Battery</h2>
+    <ion-buttons end>
+      <button ion-button icon-only clear>
+        <ion-icon class="icon-pad" [name]="batteryIcon" style="transform: rotate(270deg);"></ion-icon>
+        {{batteryPercentage}} %
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
   <ion-navbar color="white" hideWhen="ios">
     <h2 style="color: black; margin:0px;padding: 0;">Screenshot</h2>
     <ion-buttons end>

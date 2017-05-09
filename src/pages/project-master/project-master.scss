@@ -1,7 +1,7 @@
 page-project-master {
 
   .page-title {
-    color: #ffffff;
+    color: #D3D3D3;
     font-size: 1.5em;
     text-align: center;
     align-items: center;
@@ -9,18 +9,80 @@ page-project-master {
   }
 
   .home {
-    background: #ffffff;
+    background: #D3D3D3;
     // list-background-color :#D3D3D3;
   }
 
   .card-margin {
-    margin: 0;
-    background: #FFF;
+    // margin: 0;
+    background-color: #29ddab;
     border: 1px solid #AAA;
     border-bottom: 2px solid #BBB;
     padding: 0;
     overflow: hidden;
   }
+
+  .card-content-md {
+    padding: 13px 16px 13px 16px;
+    font-size: 1.4rem;
+    line-height: 1.5;
+    background-color: #29ddab;
+}
+
+  .selected {
+      background-color: #e7eff3;
+      // padding: 15px 18px 15px 18px;
+    // background-color: lightslategray !important;
+
+    border: 1px solid #AAA;
+    // border-bottom: 2px solid #BBB;
+  }
+
+  .ion-select {
+    max-width: 60%;
+  }
+
+  ion-row {
+  white-space: nowrap;
+  width: max-content;
+  overflow-x: auto !important;
+  float: left;
+  }
+
+//   #content{
+//   width: -webkit-max-content;
+//   width: max-content;
+// }
+
+.item{
+  float:left;
+}
+
+  .scroll-content{
+	   background-color: #D3D3D3;
+     overflow-x: auto;
+     overflow-y: scroll;
+     height: 20%;
+     top: 30px;
+}
+
+ion-card-content {
+    display: table-row-group;
+}
+//
+// ion-scroll.item{
+// 	height: 100%;
+// }
+//
+// ion-col{
+// 	padding: 16px;
+// 	border: solid 1px #DDD;
+// 	background-color: rgb(221, 41, 91);
+// 	color: #FFF;
+// 	border-radius: 3px;
+// 	margin: 5px;
+// }
+
 
   // .toolbar-md{
   //   padding: 0px 5px 0px 0px;
@@ -33,5 +95,129 @@ page-project-master {
 
   .item-inner {
     padding-right: 0px !important;
+  }
+
+  .home .label-md{
+    background: #ffffff;
+    color: #000;//#673147;
+  }
+
+  .back-button-ios {
+    margin-left: 10px;
+  }
+
+  .error{
+      color: #e13838;
+  }
+
+  .select-ios .select-icon .select-icon-inner{
+    border: 0;
+  }
+
+  .select-md .select-icon .select-icon-inner{
+    border: 0;
+  }
+
+  .label{
+    color: #000;//#673147;
+    margin:0;
+  }
+
+  ion-row {
+    align-items: center;
+    text-align: center;
+  }
+
+  .card-margin {
+    // margin: 0;
+    background: #FFF;
+    border: 1px solid #AAA;
+    border-bottom: 2px solid #BBB;
+    padding: 0;
+    overflow: hidden;
+  }
+
+  .button-text {
+    text-transform: initial;
+    font-size: medium;
+    padding: 0;
+  }
+
+  item-md, item-button{
+    padding: 0;
+    height: 25px;
+    font-size: 1.6rem;
+  }
+
+  [item-left], .item-md [item-right] {
+    margin: 0;
+  }
+
+  [item-left], .item-ios [item-right] {
+    margin: 0;
+  }
+
+  .item-ios {
+    position: relative;
+    padding-left: 12px;
+    border-radius: 0;
+    font-size: 1.7rem;
+    padding-right: 6px;
+    color: #000;
+    background-color: #fff;
+    transition: background-color 200ms linear;
+  }
+
+  .item-inner {
+    padding-right: 0px !important;
+  }
+
+  .item-input {
+    color: #000;
+  }
+
+  .ion-select {
+    max-width: 60%;
+  }
+
+  ion-input, ion-textarea {
+            background-color: #f2f2f2;
+            // padding: 5px 10px;
+            padding: 2%;
+            border: 1px solid #000;//#673147;
+            margin-right: 10px;
+            margin-bottom: 200%;
+  }
+
+  .icon-pad{
+    margin-right: 3px;
+    margin-bottom: 3px;
+  }
+
+  .ion-icon {
+    padding:0px;
+    margin: 0px;
+    display: inline-block;
+    font-size: 1.2em;
+    margin-right: 5px;
+  }
+
+  .list-md{
+      margin-top: 0px;
+      margin-right: 10px;
+      margin-bottom: 10px;
+      margin-left: 0px;
+  }
+
+  .list-ios{
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 10px;
+    margin-left: 0px;
+  }
+
+  .col {
+    position: relative;
+    padding: 10px;
   }
 }
